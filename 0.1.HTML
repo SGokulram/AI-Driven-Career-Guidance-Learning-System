@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Driven Career Guidance & Learning System</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2 {
+            color: #0078d4;
+            text-align: center;
+        }
+
+        header {
+            background-color: #0078d4;
+            color: white;
+            padding: 1.5rem 0;
+            animation: slideDown 1s ease-out;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header .title {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* Form Section Styles */
+        .form-section {
+            margin-bottom: 2rem;
+            animation: slideUp 1s ease-out;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        input {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #0078d4;
+            box-shadow: 0 0 5px rgba(0, 120, 212, 0.5);
+            outline: none;
+        }
+
+        button {
+            padding: 0.9rem;
+            background-color: #0078d4;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #005bb5;
+            transform: scale(1.03);
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        /* Results Section Styles */
+        .results-section {
+            margin-top: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .results-section .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: #e8f4fc;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .results-section .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0078d4;
+        }
+
+        .card-content {
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .card-footer {
+            text-align: right;
+        }
+
+        .card-footer a {
+            color: #0078d4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .card-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            0% {
+                transform: translateY(-50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            main {
+                padding: 1rem;
+            }
+
+            h1, h2 {
+                font-size: 1.5rem;
+            }
+
+            label {
+                font-size: 0.9rem;
+            }
+
+            input, button {
+                font-size: 0.9rem;
+            }
+
+            .results-section .card {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <center><h1>AI-Driven Career Guidance & Learning System</h1></center>
+        <center><div class="title">AI-Driven Career Guidance & Learning System</div></center>
+    </header>
+    <main>
+        <section class="form-section" id="home">
+            <h2>Enter Your Details</h2>
+            <form id="career-form">
+                <label for="skills">Skills:</label>
+                <input type="text" id="skills" name="skills" placeholder="e.g., Python, Data Analysis" required>
+                
+                <label for="education">Education:</label>
+                <input type="text" id="education" name="education" placeholder="e.g., Bachelor's in Computer Science" required>
+                
+                <label for="interests">Interests:</label>
+                <input type="text" id="interests" name="interests" placeholder="e.g., Machine Learning, Web Development" required>
+                
+                <button type="submit">Predict Career</button>
+            </form>
+        </section>
+        <section class="results-section" id="career-predictions">
+            <div class="card">
+                <div class="card-title">Career Prediction</div>
+                <div class="card-content">
+                    <ul id="prediction-list">
+                        <!-- Dynamic content goes here -->
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#more-predictions">See more predictions</a>
+                </div>
+            </div>
+        </section>
+        <section class="results-section" id="learning-recommendations">
+            <div class="card">
+                <div class="card-title">Learning Recommendations</div>
+                <div class="card-content">
+                    <ul id="recommendation-list">
+                        <!-- Dynamic content goes here -->
+                    </ul>
+                </div>
+                <div class="card-footer">
+                    <a href="#more-recommendations">See more recommendations</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // JavaScript to handle form submission and dynamically populate results
+        document.getElementById('career-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // Fetch form values
+            const skills = document.getElementById('skills').value;
+            const education = document.getElementById('education').value;
+            const interests = document.getElementById('interests').value;
+
+            // Example: Populating career predictions (replace with actual API call and logic)
+            const predictionList = document.getElementById('prediction-list');
+            predictionList.innerHTML = `<li>Based on your skills (${skills}), education (${education}), and interests (${interests}), we suggest exploring a career in Data Science.</li>`;
+
+            // Example: Populating learning recommendations (replace with actual API call and logic)
+            const recommendationList = document.getElementById('recommendation-list');
+            recommendationList.innerHTML = `<li>We recommend taking courses in Python programming and Machine Learning to strengthen your profile.</li>`;
+        });
+    </script>
+</body>
+</html>
